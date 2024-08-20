@@ -1,20 +1,29 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+<ion-app>
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Mi aplicacion</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+  <ion-content>
+    <h1 class="titulos">Registro </h1>
+
+    <ion-item>
+      <ion-input type="text" label="Nombre"  name="nombre" [(ngModel)]="nombre" placeholder="Escribe tu nombre "></ion-input>     
+    </ion-item>
+      <ion-item>
+        <ion-label>Educacion</ion-label>
+        <ion-select value="Educacion" multiple="true" placeholder="Selecciona tu nivel ">
+          <ion-select-option *ngFor="let niv of niveles" value="niv.id">{{niv.nivello}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    <ion-button (click)="mostrarNombre()" expand="block">
+      Enviar
+    </ion-button>
+
+  </ion-content>
+
+  <ion-footer>
+
+  </ion-footer>
+</ion-app>
