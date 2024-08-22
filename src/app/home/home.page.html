@@ -1,29 +1,13 @@
 <ion-app>
   <ion-header>
     <ion-toolbar color="primary">
-      <ion-title>Mi aplicacion</ion-title>
+      <ion-title class="titulos">Bienvenido</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
-    <h1 class="titulos">Registro </h1>
+<ion-content>
+  <h1 class="titulos">Esta sera mi app </h1>
+  <p class="parrafos">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores assumenda ducimus tenetur porro quos deserunt temporibus pariatur consequuntur? Numquam ratione sint doloribus ipsam ab voluptatum porro harum in quod veritatis!</p>
+</ion-content>
 
-    <ion-item>
-      <ion-input type="text" label="Nombre"  name="nombre" [(ngModel)]="nombre" placeholder="Escribe tu nombre "></ion-input>     
-    </ion-item>
-      <ion-item>
-        <ion-label>Educacion</ion-label>
-        <ion-select value="Educacion" multiple="true" placeholder="Selecciona tu nivel ">
-          <ion-select-option *ngFor="let niv of niveles" value="niv.id">{{niv.nivello}}</ion-select-option>
-        </ion-select>
-      </ion-item>
-    <ion-button (click)="mostrarNombre()" expand="block">
-      Enviar
-    </ion-button>
-
-  </ion-content>
-
-  <ion-footer>
-
-  </ion-footer>
 </ion-app>
