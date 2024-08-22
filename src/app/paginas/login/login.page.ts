@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { AlertController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginPage implements OnInit {
   usuario :string =""
   password :string =""
 
-  constructor(public mensaje:ToastController) { }
+  constructor(public mensaje:ToastController, private route:Router,public alerta:AlertController) { }
 
   async mensajeExito() {
     const toast = await this.mensaje.create({
@@ -21,14 +22,28 @@ export class LoginPage implements OnInit {
     });
     toast.present();
   }
+  async MensajeError() {
+    const alert = await this.alerta.create({
+      header: 'Error',
+      subHeader: 'Error de inicio de seson ',
+      message: 'El inicio de sesion fallo ',
+      buttons: ['Aceptar']
+    });
+  
+    await alert.present();
+  }
+
+  
 
   ingresar(){
     if(this.usuario ==="" && this.password===""){
       console.log("No pueden estar los campos vacios ")
+      this.MensajeError()
     }
     else{
       console.log("inicio exitoso ")
       this.mensajeExito()
+      this.route.navigate(["/home"])
     }
   }
 
