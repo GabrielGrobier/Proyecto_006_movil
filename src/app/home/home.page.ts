@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  nombre : String = "";
 
-  constructor() {}
+  constructor(private storage : Storage) {}
+
+  async ngOnInit(){
+    const storage = await this.storage.create();
+    this.nombre = await this.storage.get("nombre");
+  }
 
 }
