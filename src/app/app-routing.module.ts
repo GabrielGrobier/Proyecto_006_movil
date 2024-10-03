@@ -22,6 +22,11 @@ const routes: Routes = [
     path: 'animaciones',
     loadChildren: () => import('./paginas/animaciones/animaciones.module').then( m => m.AnimacionesPageModule)
   },
+  {
+    path: 'api',
+    loadChildren: () => import('./paginas/api/api.module').then( m => m.ApiPageModule)
+  },
+
 
 
 ];
