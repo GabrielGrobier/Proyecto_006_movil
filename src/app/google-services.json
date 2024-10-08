@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "60761010316",
+    "project_id": "seccion006duoc",
+    "storage_bucket": "seccion006duoc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:60761010316:android:f0b6234e3a9322841b8ba9",
+        "android_client_info": {
+          "package_name": "seccion06_duoc.vina"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIvt_X2i3W0zZ2SS2ygNv4-M9quT5dtzg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:60761010316:android:558a7c8d8e699cfc1b8ba9",
+        "android_client_info": {
+          "package_name": "seccion06_duoc.vina02"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIvt_X2i3W0zZ2SS2ygNv4-M9quT5dtzg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
