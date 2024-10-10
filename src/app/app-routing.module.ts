@@ -25,7 +25,11 @@ const routes: Routes = [
   {
     path: 'api',
     loadChildren: () => import('./paginas/api/api.module').then( m => m.ApiPageModule)
+  },  {
+    path: 'user-create',
+    loadChildren: () => import('./paginas/user-create/user-create.module').then( m => m.UserCreatePageModule)
   },
+
 
 
 

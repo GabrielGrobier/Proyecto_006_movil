@@ -1,5 +1,5 @@
 <ion-app>
-  <app-header [titulo]="'Iniciar Sesión'"></app-header>
+  <app-header [titulo]="'Registrate '"></app-header>
 
 
   <ion-content>
@@ -14,13 +14,7 @@
     </ion-item>
 
   
-    <ion-button expand="block"color="primary" (click)="ingresar()">
+    <ion-button expand="block"color="primary" (click)="crear_usuario()">
       Enviar
     </ion-button>
-    <ion-button [routerLink]="['/user-create']" expand="block" fill="clear" shape="round">
-      registrarse 
-    </ion-button>
   </ion-content>
-
-
-</ion-app>
