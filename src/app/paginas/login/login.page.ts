@@ -3,6 +3,15 @@ import { Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
 import { FirebaseLoginService } from 'src/app/servicios/firebase-login.service';
+// se importan librerias para utilizar la camara 
+import { Camera, CameraResultType,CameraSource } from '@capacitor/camera';
+import {defineCustomElements} from '@ionic/pwa-elements/loader';
+defineCustomElements(window);
+
+// se importan librerias para utilizar la ubicacion del dispositivo 
+import { Geolocation } from '@capacitor/geolocation';
+
+
 
 @Component({
   selector: 'app-login',
@@ -10,12 +19,26 @@ import { FirebaseLoginService } from 'src/app/servicios/firebase-login.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+// se contruye funcion que permite abrir la camara del dispositivo
+// dentro de image van los parametros de la camara e imagen a capturar 
+
+    async tomarFoto(){
+      const image = await Camera.getPhoto({
+        resultType: CameraResultType.Uri,
+        source: CameraSource.Camera,
+        quality: 100
+      });
+      console.log(image.webPath)
+    }
+
 
   nombre:string =""
   usuario :string =""
   password :string =""
 
-  constructor(public mensaje:ToastController, private route:Router,public alerta:AlertController, private storage : Storage,private loginFirebase:FirebaseLoginService) { }
+  constructor(public mensaje:ToastController, private route:Router,public alerta:AlertController, private storage : Storage,private loginFirebase:FirebaseLoginService) {
+    this.obtenerUbicacion();
+   }
 
   async mensajeExito() {
     const toast = await this.mensaje.create({
@@ -34,7 +57,14 @@ export class LoginPage implements OnInit {
   
     await alert.present();
   }
+  // Funcion que permite obtener la ubicacion 
+  async obtenerUbicacion(){
+    const coordenadas = await Geolocation.getCurrentPosition();
+    // Se muestra latitud y longitud a traves de  la consola 
+    console.log('Latitud ', coordenadas.coords.latitude);
+    console.log('Longitud', coordenadas.coords.longitude);
 
+  }
   
 
   ingresar(){
